@@ -1,7 +1,7 @@
 package com.example.CorporateLearningManagmentSystem.entity;
 
-public class student {
+public class heeloo {
     public static void main(String[] args) {
-        System.out.println("helkjbijew");
+        System.out.println("hekijdgues");
     }
 }
