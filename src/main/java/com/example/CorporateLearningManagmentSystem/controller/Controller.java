@@ -10,11 +10,11 @@ import java.util.List;
 @RestController
 @RequestMapping("")
 public class Controller {
+    public static void main(String[] args) {
+
+    }
     @Autowired
     public ServiceUserRole serviceUserRole;
-
-
-
 
 
 }
