@@ -10,13 +10,8 @@ import java.util.stream.Collectors;
 
 @Service
 public class EnrollEmployeeService {
-
- private final Enrolled enrolledRepository;
-
- @Autowired
- public EnrollEmployeeService(Enrolled enrolledRepository) {
-  this.enrolledRepository = enrolledRepository;
- }
+@Autowired
+ private  Enrolled enrolledRepository;
 
  public List<enrolledEmployeedto> getEnrolledEmployees() {
   List<com.example.CorporateLearningManagmentSystem.entity.Enrolled> enrolledList = enrolledRepository.findAll();
