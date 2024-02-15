@@ -9,7 +9,7 @@ import java.util.List;
 public class Module {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "module_id")
+    @Column(name = "id")
     private Long moduleId;
 
     @ManyToOne

@@ -8,7 +8,7 @@ import java.util.List;
 public class Resource {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "resource_id")
+    @Column(name = "id")
     private Long resourceId;
 
     @Column(name = "file_type")

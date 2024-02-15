@@ -3,11 +3,11 @@ package com.example.CorporateLearningManagmentSystem.entity;
 import jakarta.persistence.*;
 
 @Entity
-@Table(name = "CourseModuleResourceMapping")
+@Table(name = "CourseModuleResource")
 public class CourseModuleResourceMapping {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "mapping_id")
+    @Column(name = "id")
     private Long mappingId;
 
     @ManyToOne
