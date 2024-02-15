@@ -3,7 +3,8 @@ package com.example.CorporateLearningManagmentSystem.entity;
 import jakarta.persistence.*;
 
 @Entity
-public class RmEmpMapping {
+@Table(name = "ReportingmanagerEmployee")
+public class ReportingmanagerEmployeeMapping {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

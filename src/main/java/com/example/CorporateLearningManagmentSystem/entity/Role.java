@@ -10,23 +10,23 @@ public class Role {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long rid;
+    private Long id;
     private String roleName;
 
 //    @ManyToMany(mappedBy = "roles")
 //    private Set<User> users = new HashSet<>();
 
     public Role(Long id, String roleName) {
-        this.rid = rid;
+        this.id = id;
         this.roleName = roleName;
     }
 
     public Long getId() {
-        return rid;
+        return id;
     }
 
     public void setId(Long id) {
-        this.rid = rid;
+        this.id = id;
     }
 
     public String getRoleName() {
