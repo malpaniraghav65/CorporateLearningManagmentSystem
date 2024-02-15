@@ -12,14 +12,9 @@ import java.util.List;
 @RestController
 @RequestMapping("/enrolldata")
 public class enrolldata {
+@Autowired
+    private  EnrollEmployeeService enrollService;
 
-    private final EnrollEmployeeService enrollService;
-    //private final EmployeeEnrolledService enrolledService;
-
-    @Autowired
-    public enrolldata(EnrollEmployeeService enrolledService) {
-        this.enrollService = enrolledService;
-    }
     @GetMapping
     public List<enrolledEmployeedto> getEnrolledEmployees(){
         return enrollService.getEnrolledEmployees();
