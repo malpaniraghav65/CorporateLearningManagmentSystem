@@ -1,8 +1,10 @@
 package com.example.CorporateLearningManagmentSystem.service;
 
-import com.example.CorporateLearningManagmentSystem.Repository.CourseRepository;
+import com.example.CorporateLearningManagmentSystem.dto.ModuleDetails;
+import com.example.CorporateLearningManagmentSystem.repository.CourseRepository;
 import com.example.CorporateLearningManagmentSystem.dto.CourseDetails;
 import com.example.CorporateLearningManagmentSystem.entity.Course;
+import com.example.CorporateLearningManagmentSystem.repository.ModuleRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -11,20 +13,25 @@ import java.util.stream.Collectors;
 
 @Service
 public class CourseService {
-        @Autowired
-        private CourseRepository courseRepository;
+
+    private CourseRepository courseRepository;
+
+    @Autowired
+    public CourseService(CourseRepository courseRepository) {
+        this.courseRepository = courseRepository;
+    }
 
         public List<CourseDetails> getAllCourseService(){
-            return courseRepository.findAll().stream().map(this::convertEntityToDto).collect(Collectors.toList());
+            List<CourseDetails> result = courseRepository.findAll().stream().map(this::convertEntityToDto).collect(Collectors.toList());
+            return result;
         }
 
         private CourseDetails convertEntityToDto(Course course){
-            CourseDetails courseDetails = new CourseDetails();
-            courseDetails.setCourseId(course.getCourseId());
-            courseDetails.setName(course.getName());
-            courseDetails.setDescription(courseDetails.getDescription());
-            courseDetails.setDuration(courseDetails.getDuration());
-            return courseDetails;
+            return new CourseDetails(
+                  course.getCourseId(),
+                    course.getName(),
+                    course.getDescription(),
+                    course.getDuration()
+            );
         }
-
 }

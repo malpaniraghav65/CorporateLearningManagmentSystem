@@ -24,6 +24,7 @@ public class Course {
         @OneToMany(mappedBy = "course")
         private List<CourseModuleResourceMapping> mappings;
 
+
         public Long getCourseId() {
                 return courseId;
         }
