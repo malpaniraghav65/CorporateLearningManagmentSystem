@@ -8,7 +8,7 @@ public class CourseModuleResourceMapping {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
-    private Long mappingId;
+    private int mappingId;
 
     @ManyToOne
     @JoinColumn(name = "course_id")
@@ -21,4 +21,6 @@ public class CourseModuleResourceMapping {
     @ManyToOne
     @JoinColumn(name = "resource_id")
     private Resource resource;
+
+
 }

@@ -1,16 +1,14 @@
 package com.example.CorporateLearningManagmentSystem.entity;
 
 import jakarta.persistence.*;
-import jdk.jfr.Percentage;
-import org.springframework.format.annotation.DateTimeFormat;
 
 @Entity
 @Table(name = "employee_enrolled")
-public class employeeEnrolled {
+public class Enrolled {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
-    private Long Id;
+    private int Id;
 
     @ManyToOne
     @JoinColumn(name = "emp_id")
@@ -28,11 +26,11 @@ public class employeeEnrolled {
     @Column(name = "enddate")
     private String enddate;
 
-    public Long getId() {
+    public int getId() {
         return Id;
     }
 
-    public void setId(Long id) {
+    public void setId(int id) {
         Id = id;
     }
 
@@ -77,7 +75,7 @@ public class employeeEnrolled {
     }
 
 
-    public employeeEnrolled(Long id, User user, Course course, Float status, String startdate, String enddate) {
+    public Enrolled(int id, User user, Course course, Float status, String startdate, String enddate) {
         Id = id;
         this.user = user;
         this.course = course;
@@ -86,6 +84,6 @@ public class employeeEnrolled {
         this.enddate = enddate;
     }
 
-    public employeeEnrolled() {
+    public Enrolled() {
     }
 }
