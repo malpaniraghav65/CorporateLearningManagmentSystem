@@ -26,4 +26,13 @@ public class CourseController {
     public List<CourseDetails> getAllCourseService(){
         return courseService.getAllCourseService();
     }
+    @GetMapping("/DetailsWithModules")
+    public List<CourseDetails> getAllCourseServiceWithModules() {
+        return courseService.getAllCourseServiceWithModules();  // Implement this method in CourseService
+    }
+
+    @GetMapping("/DetailsWithResources")
+    public List<CourseDetails> convertEntityToDtoWithModulesAndResources(){
+        return courseService.getAllCourseServiceWithModulesAndResources();
+    }
 }

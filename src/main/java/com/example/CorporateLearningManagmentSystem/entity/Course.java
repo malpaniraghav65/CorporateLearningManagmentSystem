@@ -24,6 +24,16 @@ public class Course {
         @OneToMany(mappedBy = "course")
         private List<CourseModuleResourceMapping> mappings;
 
+        @OneToMany(mappedBy = "course", cascade = CascadeType.ALL)
+        private List<Module> modules;
+
+        public List<Module> getModules() {
+                return modules;
+        }
+
+        public void setModules(List<Module> modules) {
+                this.modules = modules;
+        }
 
         public Long getCourseId() {
                 return courseId;
@@ -65,12 +75,13 @@ public class Course {
                 this.mappings = mappings;
         }
 
-        public Course(Long courseId, String name, String description, int duration, List<CourseModuleResourceMapping> mappings) {
+        public Course(Long courseId, String name, String description, int duration, List<CourseModuleResourceMapping> mappings, List<Module> modules) {
                 this.courseId = courseId;
                 this.name = name;
                 this.description = description;
                 this.duration = duration;
                 this.mappings = mappings;
+                this.modules = modules;
         }
 
         public Course() {

@@ -21,6 +21,18 @@ public class Resource {
     @OneToMany(mappedBy = "resource")
     private List<CourseModuleResourceMapping> mappings;
 
+    @ManyToOne
+    @JoinColumn(name = "module_id")
+    private Module module;
+
+    public Module getModule() {
+        return module;
+    }
+
+    public void setModule(Module module) {
+        this.module = module;
+    }
+
     public Long getResourceId() {
         return resourceId;
     }
