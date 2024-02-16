@@ -2,9 +2,11 @@ package com.example.CorporateLearningManagmentSystem.service.impl;
 
 
 import com.example.CorporateLearningManagmentSystem.dto.userDto;
+import com.example.CorporateLearningManagmentSystem.entity.ReportingmanagerEmployeeMapping;
 import com.example.CorporateLearningManagmentSystem.entity.Role;
 import com.example.CorporateLearningManagmentSystem.entity.User;
 import com.example.CorporateLearningManagmentSystem.entity.UserRole;
+import com.example.CorporateLearningManagmentSystem.repository.ReportingmanagerEmployee;
 import com.example.CorporateLearningManagmentSystem.repository.RoleRepo;
 import com.example.CorporateLearningManagmentSystem.repository.UserRepo;
 import com.example.CorporateLearningManagmentSystem.repository.UserRoleRepo;
@@ -21,12 +23,15 @@ public class UserServiceImpl implements UserService {
     private final UserRepo userRepository;
     private final RoleRepo roleRepository;
     private final UserRoleRepo userRoleRepository;
+    private final ReportingmanagerEmployee ReportingmanagerEmployeerepo;
+
 
     @Autowired
-    public UserServiceImpl(UserRepo userRepository, RoleRepo roleRepository, UserRoleRepo userRoleRepository) {
+    public UserServiceImpl(UserRepo userRepository, RoleRepo roleRepository, UserRoleRepo userRoleRepository, ReportingmanagerEmployee reportingmanagerEmployeerepo) {
         this.userRepository = userRepository;
         this.roleRepository = roleRepository;
         this.userRoleRepository = userRoleRepository;
+        ReportingmanagerEmployeerepo = reportingmanagerEmployeerepo;
     }
 
     @Override
@@ -46,6 +51,18 @@ public class UserServiceImpl implements UserService {
         userRole.setRole(role);
 
         userRoleRepository.save(userRole);
+
+        int ReportingManagerId = userDt.getReportingmanager_id();
+//        Optional<User> rmdata=userRepository.findById(ReportingManagerId);
+//        int userid =rmdata.get().getId();
+       // List<UserRole> userrole=userRoleRepository.findAll();
+        List<UserRole> UserRole = userRoleRepository.findByUserId(ReportingManagerId);
+        String Role =UserRole.get(0).getRole().getRoleName();
+        if(Role.equals("reporting manager")){
+
+        }
+
+
     }
 
     @Override

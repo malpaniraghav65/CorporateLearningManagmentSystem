@@ -5,6 +5,7 @@ public class userDto {
     private String email;
     private String password;
     private int roleId;
+    private int reportingmanager_id;
 
     public String getName() {
         return name;
@@ -39,12 +40,20 @@ public class userDto {
 
     }
 
-    public userDto(String name, String email, String password, int roleId) {
+    public int getReportingmanager_id() {
+        return reportingmanager_id;
+    }
+
+    public void setReportingmanager_id(int reportingmanager_id) {
+        this.reportingmanager_id = reportingmanager_id;
+    }
+
+    public userDto(String name, String email, String password, int roleId, int reportingmanager_id) {
         this.name = name;
         this.email = email;
         this.password = password;
         this.roleId = roleId;
-
+        this.reportingmanager_id = reportingmanager_id;
     }
 
     public userDto() {
