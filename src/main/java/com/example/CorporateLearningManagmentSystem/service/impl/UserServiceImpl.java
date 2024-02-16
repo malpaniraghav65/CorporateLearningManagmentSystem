@@ -94,9 +94,8 @@ public class UserServiceImpl implements UserService {
     @Override
     public void deleteUser(int userId) {
         // Delete user and associated roles
-        userRepository.delete(userId);
-        Optional<User> optionalUser = userRepository.findById(userId);
 
+        Optional<User> optionalUser = userRepository.findById(userId);
         if (optionalUser.isPresent()) {
             User user = optionalUser.get();
             userRepository.delete(user);
