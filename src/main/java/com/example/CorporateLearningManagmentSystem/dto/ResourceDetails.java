@@ -4,15 +4,15 @@ import lombok.Data;
 
 
 public class ResourceDetails {
-    private Long resourceId;
+    private int resourceId;
     private String fileType;
     private byte[] actualFile;
 
-    public Long getResourceId() {
+    public int getResourceId() {
         return resourceId;
     }
 
-    public void setResourceId(Long resourceId) {
+    public void setResourceId(int resourceId) {
         this.resourceId = resourceId;
     }
 
@@ -35,7 +35,7 @@ public class ResourceDetails {
     public ResourceDetails() {
     }
 
-    public ResourceDetails(Long resourceId, String fileType, byte[] actualFile) {
+    public ResourceDetails(int resourceId, String fileType, byte[] actualFile) {
         this.resourceId = resourceId;
         this.fileType = fileType;
         this.actualFile = actualFile;

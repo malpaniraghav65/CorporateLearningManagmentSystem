@@ -2,7 +2,6 @@ package com.example.CorporateLearningManagmentSystem.entity;
 
 
 import jakarta.persistence.*;
-
 import java.util.HashSet;
 import java.util.Set;
 
@@ -15,6 +14,7 @@ public class User {
  private String name;
  private String email;
  private String password;
+
 
 
     public User(int id, String name, String email, String password) {

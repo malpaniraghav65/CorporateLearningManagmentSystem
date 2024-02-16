@@ -8,7 +8,7 @@ public class Enrolled {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
-    private Long Id;
+    private int Id;
 
     @ManyToOne
     @JoinColumn(name = "emp_id")
@@ -26,11 +26,11 @@ public class Enrolled {
     @Column(name = "enddate")
     private String enddate;
 
-    public Long getId() {
+    public int getId() {
         return Id;
     }
 
-    public void setId(Long id) {
+    public void setId(int id) {
         Id = id;
     }
 
@@ -75,7 +75,7 @@ public class Enrolled {
     }
 
 
-    public Enrolled(Long id, User user, Course course, Float status, String startdate, String enddate) {
+    public Enrolled(int id, User user, Course course, Float status, String startdate, String enddate) {
         Id = id;
         this.user = user;
         this.course = course;

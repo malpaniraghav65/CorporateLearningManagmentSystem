@@ -11,6 +11,7 @@ import com.example.CorporateLearningManagmentSystem.repository.RoleRepo;
 import com.example.CorporateLearningManagmentSystem.repository.UserRepo;
 import com.example.CorporateLearningManagmentSystem.repository.UserRoleRepo;
 import com.example.CorporateLearningManagmentSystem.service.UserService;
+import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -46,7 +47,7 @@ public class UserServiceImpl implements UserService {
 
         userRepository.save(user);
 
-        UserRole userRole = new UserRole();
+        UserRole userRole = new UserRole(user ,role);
         userRole.setUser(user);
         userRole.setRole(role);
 
@@ -93,11 +94,14 @@ public class UserServiceImpl implements UserService {
     @Override
     public void deleteUser(int userId) {
         // Delete user and associated roles
+        userRepository.delete(userId);
         Optional<User> optionalUser = userRepository.findById(userId);
+
         if (optionalUser.isPresent()) {
             User user = optionalUser.get();
-            userRoleRepository.deleteById(userId);
-            userRepository.deleteById(userId);
+            userRepository.delete(user);
+//            userRoleRepository.delete(user);
+
         } else {
             throw new RuntimeException("User not found");
         }

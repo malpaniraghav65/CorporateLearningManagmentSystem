@@ -22,7 +22,7 @@ public class EnrollEmployeeService {
 
  private enrolledEmployeedto convertToDTO(com.example.CorporateLearningManagmentSystem.entity.Enrolled enrolled) {
   return new enrolledEmployeedto(
-          enrolled.getUser().getId(),
+          Math.toIntExact(enrolled.getUser().getId()),
           enrolled.getCourse().getCourseId(),
           enrolled.getStatus(),
           enrolled.getStartdate(),

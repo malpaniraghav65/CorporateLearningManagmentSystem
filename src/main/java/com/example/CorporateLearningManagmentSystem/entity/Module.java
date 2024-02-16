@@ -10,7 +10,7 @@ public class Module {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
-    private Long moduleId;
+    private int moduleId;
 
     @ManyToOne
     @JoinColumn(name = "course_id")
@@ -22,11 +22,11 @@ public class Module {
     @OneToMany(mappedBy = "module")
     private List<CourseModuleResourceMapping> mappings;
 
-    public Long getModuleId() {
+    public int getModuleId() {
         return moduleId;
     }
 
-    public void setModuleId(Long moduleId) {
+    public void setModuleId(int moduleId) {
         this.moduleId = moduleId;
     }
 
@@ -54,7 +54,7 @@ public class Module {
         this.mappings = mappings;
     }
 
-    public Module(Long moduleId, Course course, String moduleName, List<CourseModuleResourceMapping> mappings) {
+    public Module(int moduleId, Course course, String moduleName, List<CourseModuleResourceMapping> mappings) {
         this.moduleId = moduleId;
         this.course = course;
         this.moduleName = moduleName;

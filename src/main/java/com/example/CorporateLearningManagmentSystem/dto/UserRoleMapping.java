@@ -6,8 +6,8 @@ import lombok.Data;
 @Data
 public class UserRoleMapping {
 
-    private Long userId;
+    private int userId;
 
-    private Long rid;
+    private int rid;
 
 }

@@ -5,18 +5,18 @@ import lombok.Data;
 
 
 public class ModuleDetails {
-    private Long moduleId;
+    private int moduleId;
     private Course course;
     private String moduleName;
 
     public ModuleDetails() {
     }
 
-    public Long getModuleId() {
+    public int getModuleId() {
         return moduleId;
     }
 
-    public void setModuleId(Long moduleId) {
+    public void setModuleId(int moduleId) {
         this.moduleId = moduleId;
     }
 
@@ -36,7 +36,7 @@ public class ModuleDetails {
         this.moduleName = moduleName;
     }
 
-    public ModuleDetails(Long moduleId, Course course, String moduleName) {
+    public ModuleDetails(int moduleId, Course course, String moduleName) {
         this.moduleId = moduleId;
         this.course = course;
         this.moduleName = moduleName;

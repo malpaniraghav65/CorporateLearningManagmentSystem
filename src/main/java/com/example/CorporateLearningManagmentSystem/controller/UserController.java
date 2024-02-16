@@ -4,7 +4,6 @@ package com.example.CorporateLearningManagmentSystem.controller;
 import com.example.CorporateLearningManagmentSystem.dto.userDto;
 import com.example.CorporateLearningManagmentSystem.entity.User;
 import com.example.CorporateLearningManagmentSystem.service.UserService;
-import com.example.CorporateLearningManagmentSystem.service.impl.UserServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -14,12 +13,12 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/users")
-public class Controller {
+public class UserController {
 
     private final UserService userService;
 
     @Autowired
-    public Controller(UserService userService) {
+    public UserController(UserService userService) {
         this.userService = userService;
     }
 

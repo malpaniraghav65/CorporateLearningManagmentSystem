@@ -37,7 +37,6 @@ public class userDto {
 
     public void setRoleId(int roleId) {
         this.roleId = roleId;
-
     }
 
     public int getReportingmanager_id() {
