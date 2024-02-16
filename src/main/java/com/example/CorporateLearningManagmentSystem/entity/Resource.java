@@ -9,7 +9,7 @@ public class Resource {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
-    private Long resourceId;
+    private int resourceId;
 
     @Column(name = "file_type")
     private String fileType;
@@ -21,11 +21,11 @@ public class Resource {
     @OneToMany(mappedBy = "resource")
     private List<CourseModuleResourceMapping> mappings;
 
-    public Long getResourceId() {
+    public int getResourceId() {
         return resourceId;
     }
 
-    public void setResourceId(Long resourceId) {
+    public void setResourceId(int resourceId) {
         this.resourceId = resourceId;
     }
 
@@ -53,7 +53,7 @@ public class Resource {
         this.mappings = mappings;
     }
 
-    public Resource(Long resourceId, String fileType, byte[] actualFile, List<CourseModuleResourceMapping> mappings) {
+    public Resource(int resourceId, String fileType, byte[] actualFile, List<CourseModuleResourceMapping> mappings) {
         this.resourceId = resourceId;
         this.fileType = fileType;
         this.actualFile = actualFile;

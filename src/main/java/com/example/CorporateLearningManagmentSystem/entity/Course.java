@@ -10,7 +10,7 @@ public class Course {
         @Id
         @GeneratedValue(strategy = GenerationType.IDENTITY)
         @Column(name = "id")
-        private Long courseId;
+        private int courseId;
 
         @Column(name = "name")
         private String name;
@@ -25,11 +25,11 @@ public class Course {
         private List<CourseModuleResourceMapping> mappings;
 
 
-        public Long getCourseId() {
+        public int getCourseId() {
                 return courseId;
         }
 
-        public void setCourseId(Long courseId) {
+        public void setCourseId(int courseId) {
                 this.courseId = courseId;
         }
 
@@ -65,7 +65,7 @@ public class Course {
                 this.mappings = mappings;
         }
 
-        public Course(Long courseId, String name, String description, int duration, List<CourseModuleResourceMapping> mappings) {
+        public Course(int courseId, String name, String description, int duration, List<CourseModuleResourceMapping> mappings) {
                 this.courseId = courseId;
                 this.name = name;
                 this.description = description;

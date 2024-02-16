@@ -36,7 +36,6 @@ public class userDto {
 
     public void setRoleId(int roleId) {
         this.roleId = roleId;
-
     }
 
     public userDto(String name, String email, String password, int roleId) {
