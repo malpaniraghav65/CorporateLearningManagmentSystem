@@ -24,6 +24,16 @@ public class Course {
         @OneToMany(mappedBy = "course")
         private List<CourseModuleResourceMapping> mappings;
 
+        @OneToMany(mappedBy = "course", cascade = CascadeType.ALL)
+        private List<Module> modules;
+
+        public List<Module> getModules() {
+                return modules;
+        }
+
+        public void setModules(List<Module> modules) {
+                this.modules = modules;
+        }
 
         public int getCourseId() {
                 return courseId;
@@ -71,6 +81,7 @@ public class Course {
                 this.description = description;
                 this.duration = duration;
                 this.mappings = mappings;
+                this.modules = modules;
         }
 
         public Course() {
