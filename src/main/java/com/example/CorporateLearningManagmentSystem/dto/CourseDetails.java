@@ -5,7 +5,6 @@ import lombok.Data;
 
 import java.util.List;
 
-
 public class CourseDetails {
     private int courseId;
     private String name;
@@ -15,10 +14,10 @@ public class CourseDetails {
     private List<ModuleDetails> moduleDetails;
 
     public CourseDetails(int courseId, String name, String description, int duration) {
-        this.courseId = courseId;
-        this.name = name;
-        this.description = description;
-        this.duration = duration;
+        this.courseId=courseId;
+        this.name=name;
+        this.description=description;
+        this.duration=duration;
     }
 
     public List<ModuleDetails> getModuleDetails() {

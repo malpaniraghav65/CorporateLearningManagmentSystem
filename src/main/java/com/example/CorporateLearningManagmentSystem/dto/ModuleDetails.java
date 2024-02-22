@@ -8,11 +8,14 @@ import java.util.List;
 
 public class ModuleDetails {
     private int moduleId;
-    //private Course course;
     private String moduleName;
 
-
     private List<ResourceDetails> resourceDetails;
+
+    public ModuleDetails(int moduleId, String moduleName) {
+        this.moduleId=moduleId;
+        this.moduleName=moduleName;
+    }
 
     public List<ResourceDetails> getResourceDetails() {
         return resourceDetails;
@@ -33,14 +36,6 @@ public class ModuleDetails {
         this.moduleId = moduleId;
     }
 
-//    public Course getCourse() {
-//        return course;
-//    }
-//
-//    public void setCourse(Course course) {
-//        this.course = course;
-//    }
-
     public String getModuleName() {
         return moduleName;
     }
@@ -53,12 +48,5 @@ public class ModuleDetails {
         this.moduleId = moduleId;
         this.moduleName = moduleName;
         this.resourceDetails = resourceDetails;
-    }
-
-
-    public ModuleDetails(int moduleId, String moduleName) {
-        this.moduleId = moduleId;
-//        this.course = course;
-        this.moduleName = moduleName;
     }
 }
