@@ -21,12 +21,14 @@ public class Resource {
     @OneToMany(mappedBy = "resource")
     private List<CourseModuleResourceMapping> mappings;
 
-    
-    
-    
     @ManyToOne
     @JoinColumn(name = "module_id")
     private Module module;
+
+    public Resource(String fileType, byte[] actualFile) {
+        this.fileType=fileType;
+        this.actualFile=actualFile;
+    }
 
     public Module getModule() {
         return module;

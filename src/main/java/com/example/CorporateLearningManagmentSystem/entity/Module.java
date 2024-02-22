@@ -22,12 +22,12 @@ public class Module {
     @OneToMany(mappedBy = "module")
     private List<CourseModuleResourceMapping> mappings;
 
-
-
-
-
     @OneToMany(mappedBy = "module", cascade = CascadeType.ALL)
     private List<Resource> resources;
+
+    public Module(String moduleName) {
+        this.moduleName=moduleName;
+    }
 
     public List<Resource> getResources() {
         return resources;
