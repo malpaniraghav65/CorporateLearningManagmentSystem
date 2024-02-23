@@ -9,18 +9,18 @@ public class AssignRmToEmp {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
+    //    @ManyToOne(cascade = CascadeType.PERSIST)
+//    @JoinColumn(name = "emp_id")
+    //    @ManyToOne(cascade = CascadeType.PERSIST)
+    //    @JoinColumn(name = "rmd")
+    private int rmId;
 
-    @ManyToOne
-    @JoinColumn(name = "rm_id")
-    private User Reportmanager;
-
-    @ManyToOne
-    @JoinColumn(name = "emp_id")
-    private User employee;
 
     public AssignRmToEmp() {
 
     }
+
+    private int empId;
 
     public int getId() {
         return id;
@@ -30,25 +30,25 @@ public class AssignRmToEmp {
         this.id = id;
     }
 
-    public User getReportmanager() {
-        return Reportmanager;
+    public int getRmId() {
+        return rmId;
     }
 
-    public void setReportmanager(User reportmanager) {
-        reportmanager = reportmanager;
+    public void setRmId(int rmId) {
+        this.rmId = rmId;
     }
 
-    public User getEmployee() {
-        return employee;
+    public int getEmpId() {
+        return empId;
     }
 
-    public void setEmployee(User employee) {
-        employee = employee;
+    public void setEmpId(int empId) {
+        this.empId = empId;
     }
 
-    public AssignRmToEmp(int id, User reportmanager, User employee) {
+    public AssignRmToEmp(int id, int rmId, int empId) {
         this.id = id;
-        this.Reportmanager = reportmanager;
-        this.employee = employee;
+        this.rmId = rmId;
+        this.empId = empId;
     }
 }

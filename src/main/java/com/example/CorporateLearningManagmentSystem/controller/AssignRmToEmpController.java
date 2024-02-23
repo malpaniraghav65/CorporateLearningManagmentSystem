@@ -1,6 +1,7 @@
 package com.example.CorporateLearningManagmentSystem.controller;
 
 //import com.example.CorporateLearningManagmentSystem.entity.AssignRmToEmp;
+import com.example.CorporateLearningManagmentSystem.dto.AssignRmToEmpDto;
 import com.example.CorporateLearningManagmentSystem.entity.User;
 import com.example.CorporateLearningManagmentSystem.service.AssignRmToEmpService;
 import com.example.CorporateLearningManagmentSystem.service.UserService;
@@ -9,10 +10,7 @@ import com.example.CorporateLearningManagmentSystem.service.impl.UserServiceImpl
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 
 @RestController
@@ -22,24 +20,16 @@ public class AssignRmToEmpController {
 private  AssignRmToEmpService assignRmToEmpService;
 @Autowired
 private  UserService userService;
-
-
-
-
-// Controller
-
     @PostMapping("/")
     public ResponseEntity<String> assignEmployeeToReportingManager(
-            @RequestParam(value = "reportmanagerId", required = true) int reportmanagerId,
-            @RequestParam(value = "employeeId", required = true) int employeeId
-    ) {
-       // User reportManager = userService.getUserByIdAndRoleTwo(reportmanagerId);
-       // System.out.println(reportManager+"controller class");
-//        if (!userService.hasRoleId(reportManager, 2)) {
-//            return ResponseEntity.badRequest().body("User with ID " + reportmanagerId + " is not a reporting manager.");
-//        }
+//            @RequestParam(value = "reportmanagerId", required = true) int reportmanagerId,
+//            @RequestParam(value = "employeeId", required = true) int employeeId
 
-        assignRmToEmpService.createAssignment(reportmanagerId, employeeId);
+            @RequestBody AssignRmToEmpDto assignRmToEmpDto
+            ) {
+
+
+        assignRmToEmpService.createAssignment(assignRmToEmpDto);
         return ResponseEntity.ok("Employee assigned to reporting manager successfully.");
 
     }

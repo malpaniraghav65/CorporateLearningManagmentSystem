@@ -1,6 +1,7 @@
 package com.example.CorporateLearningManagmentSystem.entity;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
 import java.util.HashSet;
@@ -15,6 +16,7 @@ public class User {
  private String name;
  private String email;
  private String password;
+    @JsonIgnore
     @ManyToMany
     @JoinTable(
             name = "userrole",
@@ -77,14 +79,5 @@ public class User {
         this.roles = roles;
     }
 
-    @Override
-    public String toString() {
-        return "User{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", email='" + email + '\'' +
-                ", password='" + password + '\'' +
-                ", roles=" + roles +
-                '}';
-    }
+
 }

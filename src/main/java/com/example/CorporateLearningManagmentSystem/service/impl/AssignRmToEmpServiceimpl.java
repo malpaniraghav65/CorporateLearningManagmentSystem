@@ -1,11 +1,13 @@
 package com.example.CorporateLearningManagmentSystem.service.impl;
 
 
+import com.example.CorporateLearningManagmentSystem.dto.AssignRmToEmpDto;
 import com.example.CorporateLearningManagmentSystem.entity.AssignRmToEmp;
 import com.example.CorporateLearningManagmentSystem.entity.User;
 import com.example.CorporateLearningManagmentSystem.repository.AssignRmToEmpRepo;
 import com.example.CorporateLearningManagmentSystem.service.AssignRmToEmpService;
 import com.example.CorporateLearningManagmentSystem.service.UserService;
+import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -29,29 +31,32 @@ public class AssignRmToEmpServiceimpl implements AssignRmToEmpService {
     public AssignRmToEmp findByEmployeeId(int employeeId) {
         return assignRmToEmpRepo.findByEmployee_Id(employeeId);
     }
+
+    @Transactional
     @Override
-    public AssignRmToEmp createAssignment(int reportmanagerId, int employeeId) {
-        User reportingManager = userService.getUserByIdAndRoleTwo(reportmanagerId);
-        User employee = userService.getUserByIdAndRoleThree(employeeId);
+    public AssignRmToEmp createAssignment(AssignRmToEmpDto assignRmToEmpDto) {
+        User reportingManager = userService.getUserByIdAndRoleTwo(assignRmToEmpDto.getReportmanagerId());
+        User employee = userService.getUserByIdAndRoleThree(assignRmToEmpDto.getEmployeeId());
 
-//        System.out.println("Hello world");
-//        System.out.println(reportingManager.getId());
-//        System.out.println(employee.getId());
         AssignRmToEmp existingAssignment = assignRmToEmpRepo.findByEmployee_Id(employee.getId());
-
-        if (existingAssignment != null && existingAssignment.getReportmanager().getId() != reportmanagerId) {
-            throw new RuntimeException("Employee with ID " + employeeId + " is already assigned to a different reporting manager.");
+        // Check if the assignment already exists for the given employee
+        if (existingAssignment != null && existingAssignment.getRmId() != reportingManager.getId()) {
+            throw new RuntimeException("Employee with ID " + employee.getId() + " is already assigned to a different reporting manager.");
+        }
+        // Check if empId is already present in AssignRmToEmp
+        AssignRmToEmp existingAssignmentForEmpId = assignRmToEmpRepo.findByEmployee_Id(assignRmToEmpDto.getEmployeeId());
+        if (existingAssignmentForEmpId != null) {
+            throw new RuntimeException("Employee with ID " + assignRmToEmpDto.getEmployeeId() + " already has an assignment.");
         }
 
         AssignRmToEmp assignment = new AssignRmToEmp();
-        assignment.setReportmanager(reportingManager);
-        assignment.setEmployee(employee);
+        assignment.setEmpId(assignRmToEmpDto.getEmployeeId());
+        assignment.setRmId(assignRmToEmpDto.getReportmanagerId());
+            return assignRmToEmpRepo.save(assignment);
+        }
 
-        return assignRmToEmpRepo.save(assignment);
     }
 
-
-}
 //    public AssignRmToEmp createAssignment(int reportmanagerId, int employeeId) {
 //        User reportingManager = userService.getUserByIdAndRoleTwo(reportmanagerId);
 //        User employee = userService.getUserByIdAndRoleThree(employeeId);
