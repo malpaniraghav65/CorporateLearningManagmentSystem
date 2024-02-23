@@ -1,6 +1,9 @@
 package com.example.CorporateLearningManagmentSystem.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
+
+import java.util.Set;
 
 @Entity
 public class Role {
@@ -9,10 +12,10 @@ public class Role {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private String roleName;
+    @ManyToMany(mappedBy = "roles")
+    private Set<User> users;
 
-    public Role(int id, String roleName) {
-        this.id = id;
-        this.roleName = roleName;
+    public Role() {
     }
 
     public int getId() {
@@ -31,6 +34,22 @@ public class Role {
         this.roleName = roleName;
     }
 
-    public Role() {
+    public Set<User> getUsers() {
+        return users;
+    }
+
+    public void setUsers(Set<User> users) {
+        this.users = users;
+    }
+
+    public Role(int id, String roleName, Set<User> users) {
+        this.id = id;
+        this.roleName = roleName;
+        this.users = users;
+    }
+
+    public Role(int id, String roleName) {
+        this.id = id;
+        this.roleName = roleName;
     }
 }

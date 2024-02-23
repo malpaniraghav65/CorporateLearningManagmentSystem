@@ -2,11 +2,12 @@ package com.example.CorporateLearningManagmentSystem.entity;
 
 
 import jakarta.persistence.*;
+
 import java.util.HashSet;
 import java.util.Set;
 
 @Entity
-@Table(name = "User")
+@Table(name = "user")
 public class User {
  @Id
  @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -14,14 +15,18 @@ public class User {
  private String name;
  private String email;
  private String password;
+    @ManyToMany
+    @JoinTable(
+            name = "userrole",
+            joinColumns = @JoinColumn(name = "user_id"),
+            inverseJoinColumns = @JoinColumn(name = "role_id")
 
+    )
 
+    private Set<Role> roles= new HashSet<>();
 
-    public User(int id, String name, String email, String password) {
-        this.id = id;
-        this.name = name;
-        this.email = email;
-        this.password = password;
+    public User() {
+
     }
 
     public int getId() {
@@ -56,6 +61,30 @@ public class User {
         this.password = password;
     }
 
-    public User() {
+    public Set<Role> getRoles() {
+        return roles;
+    }
+
+    public void setRoles(Set<Role> roles) {
+        this.roles = roles;
+    }
+
+    public User(int id, String name, String email, String password, Set<Role> roles) {
+        this.id = id;
+        this.name = name;
+        this.email = email;
+        this.password = password;
+        this.roles = roles;
+    }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", email='" + email + '\'' +
+                ", password='" + password + '\'' +
+                ", roles=" + roles +
+                '}';
     }
 }

@@ -54,4 +54,22 @@ public class UserController {
         return new ResponseEntity<>("User created with role successfully", HttpStatus.CREATED);
     }
 
-}
+
+
+
+
+//
+//    @PostMapping("/assign")
+//    public ResponseEntity<String> assignReportManagerToEmployee(
+//            @RequestParam Long reportManagerId,
+//            @RequestParam Long employeeId,
+//            @RequestParam Long requestingUserId) {
+//        try {
+//            userService.assignReportManagerToEmployee(reportManagerId, employeeId, requestingUserId);
+//            return new ResponseEntity<>("Report manager assigned to employee successfully", HttpStatus.OK);
+//        } catch (Exception e) {
+//            return new ResponseEntity<>(e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
+//        }
+    }
+
+
