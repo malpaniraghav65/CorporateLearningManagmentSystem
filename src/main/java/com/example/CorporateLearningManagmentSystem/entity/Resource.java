@@ -21,10 +21,24 @@ public class Resource {
     @OneToMany(mappedBy = "resource")
     private List<CourseModuleResourceMapping> mappings;
 
-    public int getResourceId() {
-        return resourceId;
+    @ManyToOne
+    @JoinColumn(name = "module_id")
+    private Module module;
+
+    public Resource(String fileType, byte[] actualFile) {
+        this.fileType=fileType;
+        this.actualFile=actualFile;
     }
 
+    public Module getModule() {
+        return module;
+    }
+
+    public void setModule(Module module) {
+        this.module = module;
+    }
+
+   
     public void setResourceId(int resourceId) {
         this.resourceId = resourceId;
     }
@@ -62,4 +76,7 @@ public class Resource {
 
     public Resource() {
     }
-}
+        public int getResourceId() {
+            return resourceId;
+        }
+    }

@@ -11,6 +11,7 @@ import com.example.CorporateLearningManagmentSystem.repository.RoleRepo;
 import com.example.CorporateLearningManagmentSystem.repository.UserRepo;
 
 import com.example.CorporateLearningManagmentSystem.service.UserService;
+import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
