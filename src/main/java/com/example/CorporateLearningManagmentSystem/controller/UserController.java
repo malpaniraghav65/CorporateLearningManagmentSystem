@@ -1,7 +1,7 @@
 package com.example.CorporateLearningManagmentSystem.controller;
 
 
-import com.example.CorporateLearningManagmentSystem.dto.user.userDto;
+import com.example.CorporateLearningManagmentSystem.dto.userDto;
 import com.example.CorporateLearningManagmentSystem.entity.User;
 import com.example.CorporateLearningManagmentSystem.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;

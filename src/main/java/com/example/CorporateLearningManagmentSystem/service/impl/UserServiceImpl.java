@@ -1,7 +1,7 @@
 package com.example.CorporateLearningManagmentSystem.service.impl;
 
 
-import com.example.CorporateLearningManagmentSystem.dto.user.userDto;
+import com.example.CorporateLearningManagmentSystem.dto.userDto;
 //import com.example.CorporateLearningManagmentSystem.entity.AssignRmToEmp;
 import com.example.CorporateLearningManagmentSystem.entity.Role;
 import com.example.CorporateLearningManagmentSystem.entity.User;

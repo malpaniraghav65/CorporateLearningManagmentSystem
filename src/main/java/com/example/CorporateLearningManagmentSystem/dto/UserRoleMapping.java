@@ -1,4 +1,4 @@
-package com.example.CorporateLearningManagmentSystem.dto.user;
+package com.example.CorporateLearningManagmentSystem.dto;
 
 import jakarta.persistence.Entity;
 import lombok.Data;

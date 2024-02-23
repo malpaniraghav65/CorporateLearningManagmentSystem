@@ -1,4 +1,4 @@
-package com.example.CorporateLearningManagmentSystem.dto.course;
+package com.example.CorporateLearningManagmentSystem.dto;
 
 import com.example.CorporateLearningManagmentSystem.entity.CourseModuleResourceMapping;
 import lombok.Data;
