@@ -1,10 +1,8 @@
 package com.example.CorporateLearningManagmentSystem.service;
 
-import com.example.CorporateLearningManagmentSystem.dto.ModuleDetails;
 import com.example.CorporateLearningManagmentSystem.repository.CourseRepository;
-import com.example.CorporateLearningManagmentSystem.dto.CourseDetails;
+import com.example.CorporateLearningManagmentSystem.dto.course.CourseDetails;
 import com.example.CorporateLearningManagmentSystem.entity.Course;
-import com.example.CorporateLearningManagmentSystem.repository.ModuleRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

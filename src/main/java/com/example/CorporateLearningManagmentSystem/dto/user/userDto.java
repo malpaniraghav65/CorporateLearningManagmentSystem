@@ -1,4 +1,4 @@
-package com.example.CorporateLearningManagmentSystem.dto;
+package com.example.CorporateLearningManagmentSystem.dto.user;
 
 import lombok.Getter;
 import lombok.Setter;

@@ -1,6 +1,6 @@
 package com.example.CorporateLearningManagmentSystem.controller;
 
-import com.example.CorporateLearningManagmentSystem.entity.AssignRmToEmp;
+//import com.example.CorporateLearningManagmentSystem.entity.AssignRmToEmp;
 import com.example.CorporateLearningManagmentSystem.entity.User;
 import com.example.CorporateLearningManagmentSystem.service.AssignRmToEmpService;
 import com.example.CorporateLearningManagmentSystem.service.UserService;

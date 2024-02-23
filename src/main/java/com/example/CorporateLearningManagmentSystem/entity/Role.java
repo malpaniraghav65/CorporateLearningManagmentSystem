@@ -1,5 +1,6 @@
 package com.example.CorporateLearningManagmentSystem.entity;
 
+import com.example.CorporateLearningManagmentSystem.entity.User;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 

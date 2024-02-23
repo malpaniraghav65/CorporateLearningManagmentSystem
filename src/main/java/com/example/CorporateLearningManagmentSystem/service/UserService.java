@@ -1,6 +1,6 @@
 package com.example.CorporateLearningManagmentSystem.service;
 
-import com.example.CorporateLearningManagmentSystem.dto.userDto;
+import com.example.CorporateLearningManagmentSystem.dto.user.userDto;
 import com.example.CorporateLearningManagmentSystem.entity.User;
 import org.springframework.stereotype.Service;
 
