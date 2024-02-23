@@ -27,6 +27,10 @@ public class User {
 
     private Set<Role> roles= new HashSet<>();
 
+    // In the User entity
+//    @OneToMany(mappedBy = "reportingmanager_employee", cascade = CascadeType.ALL, orphanRemoval = true)
+//    private Set<AssignRmToEmp> assignments = new HashSet<>();
+
     public User() {
 
     }

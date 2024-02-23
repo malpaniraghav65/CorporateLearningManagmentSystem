@@ -9,18 +9,13 @@ public class AssignRmToEmp {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    //    @ManyToOne(cascade = CascadeType.PERSIST)
-//    @JoinColumn(name = "emp_id")
-    //    @ManyToOne(cascade = CascadeType.PERSIST)
-    //    @JoinColumn(name = "rmd")
     private int rmId;
-
+    private int empId;
 
     public AssignRmToEmp() {
 
     }
 
-    private int empId;
 
     public int getId() {
         return id;

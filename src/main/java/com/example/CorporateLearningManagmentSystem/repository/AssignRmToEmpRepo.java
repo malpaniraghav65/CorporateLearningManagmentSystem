@@ -13,6 +13,6 @@ public interface AssignRmToEmpRepo extends JpaRepository<AssignRmToEmp, Integer>
     @Query(value = "SELECT * FROM reportingmanager_employee WHERE emp_id = :employeeId", nativeQuery = true)
     AssignRmToEmp findByEmployee_Id(@Param("employeeId") int employeeId);
 
-
+    void deleteByEmpId(int empId);
 //    boolean existsByEmployee_Id(int empId);
 }

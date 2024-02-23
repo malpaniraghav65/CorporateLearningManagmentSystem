@@ -11,4 +11,8 @@ public interface AssignRmToEmpService {
 //    public AssignRmToEmp saveAssignment(AssignRmToEmp assignment);
 
      AssignRmToEmp findByEmployeeId(int employeeId);
+
+
+
+     void deleteAssignment(int assignmentId);
 }

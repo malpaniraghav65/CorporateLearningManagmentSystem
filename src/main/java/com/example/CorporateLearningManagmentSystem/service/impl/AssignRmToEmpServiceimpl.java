@@ -32,7 +32,7 @@ public class AssignRmToEmpServiceimpl implements AssignRmToEmpService {
         return assignRmToEmpRepo.findByEmployee_Id(employeeId);
     }
 
-    @Transactional
+
     @Override
     public AssignRmToEmp createAssignment(AssignRmToEmpDto assignRmToEmpDto) {
         User reportingManager = userService.getUserByIdAndRoleTwo(assignRmToEmpDto.getReportmanagerId());
@@ -54,32 +54,11 @@ public class AssignRmToEmpServiceimpl implements AssignRmToEmpService {
         assignment.setRmId(assignRmToEmpDto.getReportmanagerId());
             return assignRmToEmpRepo.save(assignment);
         }
-
+    @Transactional
+    public void deleteAssignment(int empId) {
+            // Assuming AssignRmToEmpRepository has a method to delete by empId
+        assignRmToEmpRepo.deleteByEmpId(empId);
+            // You can add additional logic or error handling as needed.
+        }
     }
-
-//    public AssignRmToEmp createAssignment(int reportmanagerId, int employeeId) {
-//        User reportingManager = userService.getUserByIdAndRoleTwo(reportmanagerId);
-//        User employee = userService.getUserByIdAndRoleThree(employeeId);
-//        if (assignRmToEmpRepo.existsByEmployee(employeeId)) {
-//            throw new RuntimeException("Employee already has a report manager.");
-//        }
-//        AssignRmToEmp assignment = new AssignRmToEmp();
-//        assignment.setReportmanager(reportingManager);
-//        assignment.setEmployee(employee);
-////        System.out.println(reportingManager);
-////        System.out.println(reportmanagerId);/
-////        System.out.println(employeeId);
-////        return assignRmToEmpRepo.save(assignment);
-//        return assignRmToEmpRepo.save(assignment);
-//    }
-////    public AssignRmToEmp saveAssignment(AssignRmToEmp assignment) {
-////        return assignRmToEmpRepo.save(assignment);
-////    }
-//
-//    @Override
-//    public AssignRmToEmp findByEmployeeId(int employeeId) {
-//        return assignRmToEmpRepo.findByEmployee_Id(employeeId);
-////        return AssignRmToEmp(userService.getUserById());
-////        return null;
-//    }
 

@@ -21,36 +21,17 @@ private  AssignRmToEmpService assignRmToEmpService;
 @Autowired
 private  UserService userService;
     @PostMapping("/")
-    public ResponseEntity<String> assignEmployeeToReportingManager(
-//            @RequestParam(value = "reportmanagerId", required = true) int reportmanagerId,
-//            @RequestParam(value = "employeeId", required = true) int employeeId
-
-            @RequestBody AssignRmToEmpDto assignRmToEmpDto
-            ) {
-
-
+    public ResponseEntity<String> assignEmployeeToReportingManager(@RequestBody AssignRmToEmpDto assignRmToEmpDto) {
         assignRmToEmpService.createAssignment(assignRmToEmpDto);
         return ResponseEntity.ok("Employee assigned to reporting manager successfully.");
-
     }
+    @DeleteMapping("/delete/{empId}")
+    public ResponseEntity<String> deleteAssignment(@PathVariable int empId) {
+        assignRmToEmpService.deleteAssignment(empId);
+        return ResponseEntity.ok("employee are free , deleted for assign reportmanager");
+    }
+
+
 }
 
-
-//    @PostMapping("/")
-//    public ResponseEntity<String> assignEmployeeToReportingManager(
-//            @RequestParam(value = "reportmanagerId", required = true) int reportmanagerId,
-//            @RequestParam(value = "employeeId", required = true) int employeeId
-//    ) {
-//
-//            AssignRmToEmp assignment = assignRmToEmpService.createAssignment(reportmanagerId, employeeId);
-//
-//            if (userService.hasRoleId(assignment.getReportmanager(), 2)) {
-//                assignRmToEmpService.saveAssignment(assignment);
-//                return ResponseEntity.ok("Employee assigned to reporting manager successfully.");
-//            } else {
-//                return ResponseEntity.badRequest().body("User with ID " + reportmanagerId + " is not a reporting manager.");
-//            }
-//
-//    }
-//}
 
