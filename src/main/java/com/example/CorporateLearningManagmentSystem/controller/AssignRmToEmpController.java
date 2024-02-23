@@ -41,14 +41,7 @@ private  UserService userService;
 
         assignRmToEmpService.createAssignment(reportmanagerId, employeeId);
         return ResponseEntity.ok("Employee assigned to reporting manager successfully.");
-//        AssignRmToEmp existingAssignment = assignRmToEmpService.findByEmployeeId(employeeId);
-//
-//        if (existingAssignment != null && existingAssignment.getEmployee().getId() != reportmanagerId) {
-//            return ResponseEntity.badRequest().body("Employee with ID " + employeeId + " is already assigned to a different reporting manager.");
-//        }
-//
-//     assignRmToEmpService.createAssignment(reportmanagerId,employeeId);
-//        return ResponseEntity.ok("Employee assigned to reporting manager successfully.");
+
     }
 }
 
