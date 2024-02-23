@@ -17,4 +17,12 @@ public interface UserService{
     void updateUser(int userId, userDto userDt);
 
     void deleteUser(int userId);
+
+    User getUserByIdAndRoleTwo(int userId);
+    User getUserByIdAndRoleThree(int userId);
+
+    boolean hasRoleId(User user, int roleId);
+
+
+
 }
