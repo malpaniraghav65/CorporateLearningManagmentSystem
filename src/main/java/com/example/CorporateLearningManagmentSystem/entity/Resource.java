@@ -30,6 +30,10 @@ public class Resource {
         this.actualFile=actualFile;
     }
 
+    public Resource(String fileNameWithTimestamp) {
+        this.fileType=fileNameWithTimestamp;
+    }
+
     public Module getModule() {
         return module;
     }

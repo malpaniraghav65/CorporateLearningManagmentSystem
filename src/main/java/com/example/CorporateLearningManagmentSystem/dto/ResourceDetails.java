@@ -8,6 +8,7 @@ public class ResourceDetails {
     private String fileType;
     private byte[] actualFile;
 
+
     public int getResourceId() {
         return resourceId;
     }
