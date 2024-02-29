@@ -1,11 +1,9 @@
 package com.example.CorporateLearningManagmentSystem.controller;
 
 import com.example.CorporateLearningManagmentSystem.dto.CourseDetails;
-import com.example.CorporateLearningManagmentSystem.dto.ModuleDetails;
-import com.example.CorporateLearningManagmentSystem.helper.FileUploadHelper;
+import com.example.CorporateLearningManagmentSystem.service.FileUploadService;
 import com.example.CorporateLearningManagmentSystem.service.CourseService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -21,7 +19,7 @@ public class CourseController {
     @Autowired
      private CourseService courseService;
     @Autowired
-    private FileUploadHelper fileUploadHelper;
+    private FileUploadService fileUploadHelper;
 
     @GetMapping("/Details")
     public List<CourseDetails> getAllCourseService(){
