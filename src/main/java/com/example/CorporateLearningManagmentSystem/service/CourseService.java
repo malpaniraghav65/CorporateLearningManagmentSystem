@@ -2,8 +2,10 @@ package com.example.CorporateLearningManagmentSystem.service;
 
 import com.example.CorporateLearningManagmentSystem.dto.ModuleDetails;
 import com.example.CorporateLearningManagmentSystem.dto.ResourceDetails;
+import com.example.CorporateLearningManagmentSystem.entity.CourseModuleResourceMapping;
 import com.example.CorporateLearningManagmentSystem.entity.Module;
 import com.example.CorporateLearningManagmentSystem.entity.Resource;
+import com.example.CorporateLearningManagmentSystem.repository.CourseModuleResourceMappingRepository;
 import com.example.CorporateLearningManagmentSystem.repository.CourseRepository;
 import com.example.CorporateLearningManagmentSystem.dto.CourseDetails;
 import com.example.CorporateLearningManagmentSystem.entity.Course;
@@ -24,6 +26,8 @@ public class CourseService {
     private ModuleRepository moduleRepository;
     @Autowired
     private ResourceRepository resourceRepository;
+    @Autowired
+    private CourseModuleResourceMappingRepository courseModuleResourceMappingRepository;
 
 
         public List<CourseDetails> getAllCourseService(){
@@ -76,7 +80,7 @@ public class CourseService {
                                 .map(resource -> new ResourceDetails(
                                         resource.getResourceId(),
                                         resource.getFileType(),
-                                        resource.getActualFile()
+                                        resource.getfilename()
                                 ))
                                 .collect(Collectors.toList());
 
@@ -101,24 +105,27 @@ public class CourseService {
         course = courseRepository.save(course);
 
         List<ModuleDetails> moduleDetailsList = courseDetails.getModuleDetails();
- //       if (moduleDetailsList != null) {
+        if (moduleDetailsList != null) {
             for (ModuleDetails moduleDetails : moduleDetailsList) {
                 Module module = convertModuleDtoToEntity(moduleDetails);
                 module.setCourse(course);
                 module = moduleRepository.save(module);
 
                 List<ResourceDetails> resourceDetailsList = moduleDetails.getResourceDetails();
-   //             if (resourceDetailsList != null) {
+                if (resourceDetailsList != null) {
                     for (ResourceDetails resourceDetails : resourceDetailsList) {
                         Resource resource = convertResourceDtoToEntity(resourceDetails);
                         resource.setModule(module);
                         resourceRepository.save(resource);
+
+                        CourseModuleResourceMapping mapping = new CourseModuleResourceMapping();
+                        mapping.setCourse(mapping.getCourse());
+                        mapping.setModule(mapping.getModule());
+                        mapping.setResource(mapping.getResource());
+                        courseModuleResourceMappingRepository.save(mapping);
                     }
-     //           }
-       //         else{
-         //           System.out.println("ResourceModule is Empty");
-           //     }
-            //}
+                }
+            }
         }
         //return "Created done";
         return new CourseDetails(
@@ -147,7 +154,7 @@ public class CourseService {
     private Resource convertResourceDtoToEntity(ResourceDetails resourceDetails) {
         return new Resource(
                 resourceDetails.getFileType(),
-                resourceDetails.getActualFile()
+                resourceDetails.getfilename()
         );
     }
 
@@ -187,7 +194,7 @@ public class CourseService {
 
                         // Update resource details
                         existingResource.setFileType(updatedResourceDetails.getFileType());
-                        existingResource.setActualFile(updatedResourceDetails.getActualFile());
+                        existingResource.setfilename(updatedResourceDetails.getfilename());
                     }
                 }
             }

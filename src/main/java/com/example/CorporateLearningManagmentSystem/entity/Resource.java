@@ -14,9 +14,8 @@ public class Resource {
     @Column(name = "file_type")
     private String fileType;
 
-    @Lob
-    @Column(name = "actual_file")
-    private byte[] actualFile;
+    @Column(name = "file_name")
+    private String filename;
 
     @OneToMany(mappedBy = "resource")
     private List<CourseModuleResourceMapping> mappings;
@@ -25,9 +24,13 @@ public class Resource {
     @JoinColumn(name = "module_id")
     private Module module;
 
-    public Resource(String fileType, byte[] actualFile) {
+    public Resource(String fileType, String filename) {
         this.fileType=fileType;
-        this.actualFile=actualFile;
+        this.filename=filename;
+    }
+
+    public Resource(String fileNameWithTimestamp) {
+        this.fileType=fileNameWithTimestamp;
     }
 
     public Module getModule() {
@@ -51,12 +54,12 @@ public class Resource {
         this.fileType = fileType;
     }
 
-    public byte[] getActualFile() {
-        return actualFile;
+    public String getfilename() {
+        return filename;
     }
 
-    public void setActualFile(byte[] actualFile) {
-        this.actualFile = actualFile;
+    public void setfilename(String filename) {
+        this.filename = filename;
     }
 
     public List<CourseModuleResourceMapping> getMappings() {
@@ -67,10 +70,10 @@ public class Resource {
         this.mappings = mappings;
     }
 
-    public Resource(int resourceId, String fileType, byte[] actualFile, List<CourseModuleResourceMapping> mappings) {
+    public Resource(int resourceId, String fileType, String filename, List<CourseModuleResourceMapping> mappings) {
         this.resourceId = resourceId;
         this.fileType = fileType;
-        this.actualFile = actualFile;
+        this.filename = filename;
         this.mappings = mappings;
     }
 

@@ -6,7 +6,8 @@ import lombok.Data;
 public class ResourceDetails {
     private int resourceId;
     private String fileType;
-    private byte[] actualFile;
+    private String filename;
+
 
     public int getResourceId() {
         return resourceId;
@@ -24,20 +25,20 @@ public class ResourceDetails {
         this.fileType = fileType;
     }
 
-    public byte[] getActualFile() {
-        return actualFile;
+    public String getfilename() {
+        return filename;
     }
 
-    public void setActualFile(byte[] actualFile) {
-        this.actualFile = actualFile;
+    public void setfilename(String filename) {
+        this.filename = filename;
     }
 
     public ResourceDetails() {
     }
 
-    public ResourceDetails(int resourceId, String fileType, byte[] actualFile) {
+    public ResourceDetails(int resourceId, String fileType, String filename) {
         this.resourceId = resourceId;
         this.fileType = fileType;
-        this.actualFile = actualFile;
+        this.filename = filename;
     }
 }
