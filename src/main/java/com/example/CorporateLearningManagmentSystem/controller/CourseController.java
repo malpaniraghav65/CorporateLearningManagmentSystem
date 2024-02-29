@@ -2,6 +2,7 @@ package com.example.CorporateLearningManagmentSystem.controller;
 
 import com.example.CorporateLearningManagmentSystem.dto.CourseDetails;
 import com.example.CorporateLearningManagmentSystem.dto.ModuleDetails;
+import com.example.CorporateLearningManagmentSystem.helper.FileUploadHelper;
 import com.example.CorporateLearningManagmentSystem.service.CourseService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.EmptyResultDataAccessException;
@@ -19,6 +20,8 @@ import java.util.List;
 public class CourseController {
     @Autowired
      private CourseService courseService;
+    @Autowired
+    private FileUploadHelper fileUploadHelper;
 
     @GetMapping("/Details")
     public List<CourseDetails> getAllCourseService(){
