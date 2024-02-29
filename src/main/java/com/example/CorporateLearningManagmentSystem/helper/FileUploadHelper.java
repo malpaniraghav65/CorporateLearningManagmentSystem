@@ -114,6 +114,8 @@ public class FileUploadHelper {
         resourceRepository.save(existingResource);
     }
 
+    /*------------------------------- delete resources-----------------------------------*/
+
     public boolean deleteResource(int resourceId) {
         try {
             Resource resourceToDelete = resourceRepository.findById(resourceId).orElse(null);
