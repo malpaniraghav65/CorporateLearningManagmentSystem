@@ -1,7 +1,7 @@
 package com.example.CorporateLearningManagmentSystem.controller;
 
 import com.example.CorporateLearningManagmentSystem.entity.Module;
-import com.example.CorporateLearningManagmentSystem.helper.FileUploadHelper;
+import com.example.CorporateLearningManagmentSystem.service.FileUploadService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -13,7 +13,7 @@ import org.springframework.web.multipart.MultipartFile;
 public class FileUploadController {
 
     @Autowired
-    private FileUploadHelper fileUploadHelper;
+    private FileUploadService fileUploadService;
     @PostMapping("/upload")
     public ResponseEntity<String> uploadFile(@RequestParam("file")MultipartFile file) {
 
@@ -21,7 +21,7 @@ public class FileUploadController {
             if (file.isEmpty()) {
                 return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Request must contain file.");
             }
-            boolean f = fileUploadHelper.uploadFile(file);
+            boolean f = fileUploadService.uploadFile(file);
             if(f){
                 return ResponseEntity.ok("File is successfully uploaded");
             }
@@ -37,7 +37,7 @@ public class FileUploadController {
             @RequestParam("resourceId") int resourceId,
             @RequestParam("moduleId") Module moduleId) {
         try {
-            boolean success = fileUploadHelper.associateModuleWithResource(resourceId, moduleId);
+            boolean success = fileUploadService.associateModuleWithResource(resourceId, moduleId);
             if (success) {
                 return ResponseEntity.ok("Module associated successfully with ResourceId: " + resourceId);
             } else {
@@ -52,7 +52,7 @@ public class FileUploadController {
     @PutMapping("/update-resource/{resourceId}")
     public ResponseEntity<String> updateResource(@PathVariable("resourceId") int resourceId, @RequestParam("file") MultipartFile updatedFile) {
         try {
-            boolean success = fileUploadHelper.updateResource(resourceId, updatedFile);
+            boolean success = fileUploadService.updateResource(resourceId, updatedFile);
 
             if (success) {
                 return ResponseEntity.ok("Resource updated successfully");
@@ -68,7 +68,7 @@ public class FileUploadController {
     @DeleteMapping("/delete-resource")
     public ResponseEntity<String> deleteResource(@RequestParam("resourceId") int resourceId) {
         try {
-            boolean success = fileUploadHelper.deleteResource(resourceId);
+            boolean success = fileUploadService.deleteResource(resourceId);
 
             if (success) {
                 return ResponseEntity.ok("Resource deleted successfully");

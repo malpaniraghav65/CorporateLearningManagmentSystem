@@ -1,4 +1,4 @@
-package com.example.CorporateLearningManagmentSystem.helper;
+package com.example.CorporateLearningManagmentSystem.service;
 
 import com.example.CorporateLearningManagmentSystem.dto.ResourceDetails;
 import com.example.CorporateLearningManagmentSystem.entity.Module;
@@ -15,7 +15,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 @Component
-public class FileUploadHelper {
+public class FileUploadService {
     @Autowired
     private ResourceRepository resourceRepository;
     public final String UPLOAD_DIR = "/home/azilen/Downloads/CorporateLearningManagmentSystem/src/main/resources/static/Resources";
